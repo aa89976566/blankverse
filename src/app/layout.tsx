@@ -1,42 +1,34 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const display = Instrument_Serif({
+const display = localFont({
+  src: "./fonts/display.woff2",
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+  weight: "300",
+  display: "swap",
 });
 
-const sans = Manrope({
+const sans = localFont({
+  src: "./fonts/sans.woff2",
   variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Blank Verse Films",
   description:
-    "Blank Verse Films is a production house operating across the UK and India. Short films, features, and responsible storytelling that resonates across borders.",
+    "Blank Verse Films is a production house operating across the UK and India.",
   metadataBase: new URL("https://www.blankversefilms.com"),
-  openGraph: {
-    title: "Blank Verse Films",
-    description: "for the love of filmmaking",
-    url: "https://www.blankversefilms.com",
-    siteName: "Blank Verse Films",
-    type: "website",
-  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} h-full`}>
-      <body className="min-h-full antialiased">{children}</body>
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

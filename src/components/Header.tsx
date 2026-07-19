@@ -8,7 +8,7 @@ export function Header() {
   const [solid, setSolid] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 40);
+    const onScroll = () => setSolid(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -22,52 +22,40 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className={`site-header ${solid || open ? "is-solid" : ""}`}>
-      <div className="container flex items-center justify-between py-4 md:py-5">
-        <a href="#top" className="text-[0.95rem] tracking-[-0.02em]">
-          {site.name}
-        </a>
-
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
-          {nav.map((item) => (
-            <a key={item.href} href={item.href} className="nav-link">
-              {item.label}
-            </a>
-          ))}
-          <a href={`mailto:${site.email}`} className="nav-link">
-            Let&apos;s talk
-          </a>
-        </nav>
-
-        <button
-          type="button"
-          className="md:hidden"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? "Close" : "Menu"}
-        </button>
-      </div>
-
-      {open && (
-        <div className="border-t border-black/15 bg-white text-black md:hidden">
-          <nav className="container flex flex-col gap-5 py-8">
+    <>
+      <header className={`c-header ${solid || open ? "is-solid" : ""}`}>
+        <div className="c-header_inner">
+          <a href="#top">{site.name}</a>
+          <nav className="c-header_nav" aria-label="Primary">
             {nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="heading-huge !text-[2.4rem]"
-                onClick={() => setOpen(false)}
-              >
+              <a key={item.href} className="c-header_link" href={item.href}>
                 {item.label}
               </a>
             ))}
-            <a href={`mailto:${site.email}`} onClick={() => setOpen(false)}>
-              {site.email}
+            <a className="c-header_cta" href={`mailto:${site.email}`}>
+              Let&apos;s talk
             </a>
           </nav>
+          <button
+            type="button"
+            className="c-header_menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? "Close" : "Menu"}
+          </button>
         </div>
-      )}
-    </header>
+      </header>
+      <div className={`c-mobile ${open ? "is-open" : ""}`}>
+        {nav.map((item) => (
+          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            {item.label}
+          </a>
+        ))}
+        <a href={`mailto:${site.email}`} onClick={() => setOpen(false)}>
+          Let&apos;s talk
+        </a>
+      </div>
+    </>
   );
 }

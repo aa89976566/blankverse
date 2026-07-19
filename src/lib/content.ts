@@ -1,16 +1,12 @@
 const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-export const asset = (path: string) => `${base}${path.startsWith("/") ? path : `/${path}`}`;
+export const asset = (path: string) =>
+  `${base}${path.startsWith("/") ? path : `/${path}`}`;
 
 export const site = {
   name: "Blank Verse Films",
-  tagline: "for the love of filmmaking",
   email: "udbhavi.films@gmail.com",
   url: "https://www.blankversefilms.com",
-  youtubeShowreel: "https://www.youtube.com/watch?v=MDB41TwlpUg",
-  year: "©2026",
-  place: "London, UK · Mumbai, India",
-  type: "Production",
+  youtube: "https://www.youtube.com/watch?v=MDB41TwlpUg",
 };
 
 export const nav = [
@@ -18,72 +14,47 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Showreel", href: "#showreel" },
   { label: "Studio", href: "#studio" },
-  { label: "Contact", href: "#contact" },
+  { label: "Store", href: "#contact" },
 ];
 
 export const hero = {
-  eyebrow: "Studio",
+  type: "Studio",
   categories: ["Film", "Production"],
   title: "Blank Verse Films",
   year: "©2026",
-  meta: "Production house\nUK & India",
-  caption: "for the love of filmmaking",
+  metaLine1: "Production",
+  metaLine2: "UK & India",
   image: "/media/hero-wide.jpg",
-  pitch:
-    "A production house built by two sisters — stories told with restraint, across borders.",
+  caption: "for the love of filmmaking",
+  pitch: "A production house rooted in emotionally driven stories, working across the UK and India.",
 };
 
-export const about = {
-  title: "About",
-  paragraphs: [
-    "A dream by two sisters, Meghna and Udbhavi Upadhyay, Blank Verse Films is a production house operating across the UK and India. We offer end-to-end production services across a wide range of formats. Our work includes short films that have been officially nominated, selected, and screened at national and international film festivals. We have also produced a feature film shot in London and Malaysia, which is currently in post-production.",
-    "At Blank Verse Films, we create across multiple formats. For us, these formats are simply different mediums through which stories can be told. We believe in impactful, responsible storytelling that resonates across borders.",
-    "We do independent films to well-budgeted projects and have a wonderful pool of people who we work with.",
-  ],
-};
-
-export const projects = [
-  {
-    title: "Therapist",
-    detail: "Short · Proof of concept · 12 min · Festival circuit",
-  },
-  {
-    title: "1 – 1",
-    detail: "Psychological crime short · In post-production",
-  },
-  {
-    title: "Athi-Athikka",
-    detail: "Feature · London & Malaysia · In post-production",
-  },
-  {
-    title: "Whiskey Sour",
-    detail: "Short · Dir. Udbhavi Upadhyay",
-  },
-  {
-    title: "Baat Baaki",
-    detail: "Short · Dir. Udbhavi · Writer Meghna Upadhyay",
-  },
-  {
-    title: "Oh Good Grief",
-    detail: "Short · Producer Udbhavi Upadhyay",
-  },
+export const about = [
+  "A dream by two sisters, Meghna and Udbhavi Upadhyay, Blank Verse Films is a production house operating across the UK and India. We offer end-to-end production services across a wide range of formats. Our work includes short films that have been officially nominated, selected, and screened at national and international film festivals. We have also produced a feature film shot in London and Malaysia, which is currently in post-production.",
+  "At Blank Verse Films, we create across multiple formats. For us, these formats are simply different mediums through which stories can be told. We believe in impactful, responsible storytelling that resonates across borders.",
+  "We do independent films to well-budgeted projects and have a wonderful pool of people who we work with.",
 ];
 
-export const mandate = {
-  title: "Mandate",
-  body: "From proof-of-concept shorts to features, we take stories from the page to the screen — development, writing, directing, producing, and line producing. Fiction, documentary, music video, vertical series. The through-line stays the same: characters on emotional or societal margins, told with restraint and a clear visual language.",
-};
+export const work = [
+  { title: "Therapist", detail: "Short · Proof of concept · 12 min · Festival circuit" },
+  { title: "1 – 1", detail: "Psychological crime short · In post-production" },
+  { title: "Athi-Athikka", detail: "Feature · London & Malaysia · In post-production" },
+  { title: "Whiskey Sour", detail: "Short · Written & directed by Udbhavi Upadhyay" },
+  { title: "Baat Baaki", detail: "Short · Dir. Udbhavi · Writer Meghna Upadhyay" },
+  { title: "Oh Good Grief", detail: "Short · Producer Udbhavi Upadhyay" },
+];
 
-export const approach = {
-  title: "Approach",
-  body: "Every format is a different door into the same question: how do people live with what they cannot say out loud? Sets stay small when they should, larger when the story asks. Crews in London and Mumbai. Festivals when the film is ready — not before.",
-};
+export const mandate =
+  "From proof-of-concept shorts to features, we take stories from the page to the screen — development, writing, directing, producing, and line producing. Fiction, documentary, music video, vertical series. Characters on emotional or societal margins, told with restraint and a clear visual language.";
+
+export const approach =
+  "Every format is a different door into the same question: how do people live with what they cannot say out loud? Sets stay small when they should, larger when the story asks. Crews in London and Mumbai. Festivals when the film is ready — not before.";
 
 export const people = [
   {
     name: "Udbhavi Upadhyay",
     role: "Filmmaker · Writer · Producer",
-    base: "London",
+    place: "London",
     image: "/media/filmmaker-portrait.jpg",
     bio: [
       "Udbhavi Upadhyay is a London-based filmmaker and writer originally from India. With over five years of experience in development and writing in Mumbai’s film industry, her work is rooted in emotionally driven storytelling that explores complex human relationships, silence, and unspoken truths. With a Master’s degree in Filmmaking at the London Film Academy, Udbhavi is focused on honing her directorial voice while building an international body of work. Her films have screened and been recognized at national and international film festivals.",
@@ -94,7 +65,7 @@ export const people = [
   {
     name: "Meghna Upadhyay",
     role: "Writer · Producer · Poet",
-    base: "Mumbai",
+    place: "Mumbai",
     image: "/media/set-alley.jpg",
     bio: [
       "Meghna is a Mumbai-based spoken word poet, storyteller and writer with four years of stage experience across curated events, theatre shows and literature festivals. Venues include Kommune, Habitat, Rasa–the stage, Balgandharv Mandir, Mukti Manch and Cat Cafe Studio.",
@@ -112,13 +83,12 @@ export const credits = [
   { label: "Contact", value: "udbhavi.films@gmail.com" },
 ];
 
-export const nextProject = {
-  eyebrow: "Next Project",
+export const next = {
   title: "Therapist",
   year: "©2023",
-  meta: "Short film\nFestival circuit",
+  metaLine1: "Short film",
+  metaLine2: "Festival circuit",
   image: "/media/therapist-crew.jpg",
-  href: "#work",
 };
 
 export const gallery = [
