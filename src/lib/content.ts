@@ -1,9 +1,16 @@
+const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const asset = (path: string) => `${base}${path.startsWith("/") ? path : `/${path}`}`;
+
 export const site = {
   name: "Blank Verse Films",
   tagline: "for the love of filmmaking",
   email: "udbhavi.films@gmail.com",
   url: "https://www.blankversefilms.com",
   youtubeShowreel: "https://www.youtube.com/watch?v=MDB41TwlpUg",
+  year: "©2026",
+  place: "London, UK · Mumbai, India",
+  type: "Production",
 };
 
 export const nav = [
@@ -15,90 +22,62 @@ export const nav = [
 ];
 
 export const hero = {
+  eyebrow: "Studio",
+  categories: ["Film", "Production"],
   title: "Blank Verse Films",
+  year: "©2026",
+  meta: "Production house\nUK & India",
   caption: "for the love of filmmaking",
-  dek: "A production house rooted in emotionally driven stories, working across the UK and India.",
+  image: "/media/hero-wide.jpg",
+  pitch:
+    "A production house built by two sisters — stories told with restraint, across borders.",
 };
 
 export const about = {
-  overline: "About",
-  body: [
+  title: "About",
+  paragraphs: [
     "A dream by two sisters, Meghna and Udbhavi Upadhyay, Blank Verse Films is a production house operating across the UK and India. We offer end-to-end production services across a wide range of formats. Our work includes short films that have been officially nominated, selected, and screened at national and international film festivals. We have also produced a feature film shot in London and Malaysia, which is currently in post-production.",
     "At Blank Verse Films, we create across multiple formats. For us, these formats are simply different mediums through which stories can be told. We believe in impactful, responsible storytelling that resonates across borders.",
     "We do independent films to well-budgeted projects and have a wonderful pool of people who we work with.",
   ],
 };
 
+export const projects = [
+  {
+    title: "Therapist",
+    detail: "Short · Proof of concept · 12 min · Festival circuit",
+  },
+  {
+    title: "1 – 1",
+    detail: "Psychological crime short · In post-production",
+  },
+  {
+    title: "Athi-Athikka",
+    detail: "Feature · London & Malaysia · In post-production",
+  },
+  {
+    title: "Whiskey Sour",
+    detail: "Short · Dir. Udbhavi Upadhyay",
+  },
+  {
+    title: "Baat Baaki",
+    detail: "Short · Dir. Udbhavi · Writer Meghna Upadhyay",
+  },
+  {
+    title: "Oh Good Grief",
+    detail: "Short · Producer Udbhavi Upadhyay",
+  },
+];
+
 export const mandate = {
-  overline: "What we do",
+  title: "Mandate",
   body: "From proof-of-concept shorts to features, we take stories from the page to the screen — development, writing, directing, producing, and line producing. Fiction, documentary, music video, vertical series. The through-line stays the same: characters on emotional or societal margins, told with restraint and a clear visual language.",
 };
 
 export const approach = {
-  overline: "Approach",
+  title: "Approach",
   body: "Every format is a different door into the same question: how do people live with what they cannot say out loud? Sets stay small when they should, larger when the story asks. Crews in London and Mumbai. Festivals when the film is ready — not before.",
 };
-
-export const projects = [
-  {
-    id: "therapist",
-    title: "Therapist",
-    meta: "Short film · Proof of concept · 12 min",
-    status: "Submitted to film festivals",
-    summary:
-      "A proof-of-concept short that explores the mental health of a rape child.",
-    image: "/media/therapist-crew.jpg",
-    imageAlt: "Cast and crew on the Therapist set",
-  },
-  {
-    id: "one-to-one",
-    title: "1 – 1",
-    meta: "Psychological crime · Short film",
-    status: "In post-production",
-    summary: "A psychological crime short currently in post-production.",
-    image: "/media/night-still.jpg",
-    imageAlt: "Cinematic still from a night exterior",
-  },
-  {
-    id: "athi-athikka",
-    title: "Athi-Athikka",
-    meta: "Feature film · London & Malaysia",
-    status: "In post-production",
-    summary:
-      "Feature film shot in London and Malaysia. Currently in post-production.",
-    image: "/media/set-alley.jpg",
-    imageAlt: "Location shoot in a residential street",
-  },
-  {
-    id: "whiskey-sour",
-    title: "Whiskey Sour",
-    meta: "Short film · Written & directed by Udbhavi Upadhyay",
-    status: "Completed",
-    summary:
-      "A Blank Verse Films production. Starring Sanjana Deshmukh and Meghna Upadhyay.",
-    image: "/media/whiskey-sour.jpg",
-    imageAlt: "Whiskey Sour title card",
-  },
-  {
-    id: "baat-baaki",
-    title: "Baat Baaki",
-    meta: "Short film · Dir. Udbhavi · Writer Meghna Upadhyay",
-    status: "Completed",
-    summary: "A Blank Verse Films production set against the Mumbai night.",
-    image: "/media/baat-baaki.png",
-    imageAlt: "Baat Baaki poster",
-  },
-  {
-    id: "oh-good-grief",
-    title: "Oh Good Grief",
-    meta: "Short film · Producer: Udbhavi Upadhyay",
-    status: "Completed",
-    summary:
-      "A film by Nav Arora. Produced by Udbhavi Upadhyay for Painting Pictures Productions.",
-    image: "/media/oh-good-grief.jpg",
-    imageAlt: "Oh Good Grief poster",
-  },
-];
 
 export const people = [
   {
@@ -129,9 +108,24 @@ export const credits = [
   { label: "Studio", value: "Blank Verse Films" },
   { label: "Founders", value: "Meghna Upadhyay, Udbhavi Upadhyay" },
   { label: "Bases", value: "London, UK · Mumbai, India" },
-  {
-    label: "Formats",
-    value: "Short · Feature · Documentary · Music video · Vertical",
-  },
+  { label: "Formats", value: "Short · Feature · Documentary · Music video · Vertical" },
   { label: "Contact", value: "udbhavi.films@gmail.com" },
+];
+
+export const nextProject = {
+  eyebrow: "Next Project",
+  title: "Therapist",
+  year: "©2023",
+  meta: "Short film\nFestival circuit",
+  image: "/media/therapist-crew.jpg",
+  href: "#work",
+};
+
+export const gallery = [
+  "/media/therapist-crew.jpg",
+  "/media/night-still.jpg",
+  "/media/baat-baaki.png",
+  "/media/whiskey-sour.jpg",
+  "/media/oh-good-grief.jpg",
+  "/media/still-a.jpg",
 ];

@@ -1,12 +1,17 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { SectionOverline } from "@/components/SectionOverline";
-import { WorkList } from "@/components/WorkList";
-import { VisualBreak, DualVisual } from "@/components/VisualBreak";
-import { Showreel } from "@/components/Showreel";
-import { Studio } from "@/components/Studio";
-import { Contact } from "@/components/Contact";
-import { about, approach, mandate } from "@/lib/content";
+import { Gallery } from "@/components/Gallery";
+import {
+  AboutSection,
+  ApproachSection,
+  CreditsSection,
+  MandateSection,
+  NextProject,
+  ProjectsSection,
+  StudioSection,
+  WebsiteCta,
+} from "@/components/Sections";
+import { DualVideo, DualVisual, FullVisual, VideoBlock } from "@/components/Visuals";
 
 export default function HomePage() {
   return (
@@ -16,42 +21,51 @@ export default function HomePage() {
       <main>
         <Hero />
 
-        <SectionOverline id="about" title={about.overline}>
-          <div className="body-copy">
-            {about.body.map((paragraph) => (
-              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-            ))}
+        <FullVisual src="/media/therapist-crew.jpg" />
+
+        <AboutSection />
+
+        <ProjectsSection />
+
+        <DualVisual left="/media/filmmaker-portrait.jpg" right="/media/set-alley.jpg" />
+
+        <VideoBlock
+          src="/video/clip-a.mp4"
+          poster="/media/production-wide.jpg"
+          autoPlay
+        />
+
+        <MandateSection />
+
+        <DualVisual left="/media/night-still.jpg" right="/media/still-a.jpg" rounded />
+
+        <FullVisual src="/media/baat-baaki.png" rounded />
+
+        <DualVideo
+          left={{ src: "/video/clip-b.mp4", poster: "/media/night-still.jpg" }}
+          right={{ src: "/video/clip-a.mp4", poster: "/media/hero-wide.jpg" }}
+        />
+
+        <FullVisual src="/media/whiskey-sour.jpg" />
+
+        <ApproachSection />
+
+        <section id="showreel" className="bg-[var(--color-film)] py-4 text-white md:py-8">
+          <VideoBlock src="/video/showreel.mp4" poster="/media/production-wide.jpg" />
+          <div className="container pb-10">
+            <p className="text-medium opacity-70">Showreel</p>
           </div>
-        </SectionOverline>
+        </section>
 
-        <VisualBreak src="/media/therapist-crew.jpg" alt="Therapist cast and crew" />
+        <Gallery />
 
-        <WorkList />
+        <StudioSection />
 
-        <DualVisual
-          left={{ src: "/media/filmmaker-portrait.jpg", alt: "Udbhavi Upadhyay on camera" }}
-          right={{ src: "/media/still-a.jpg", alt: "Blank Verse Films production still" }}
-        />
+        <WebsiteCta />
 
-        <SectionOverline title={mandate.overline}>
-          <p className="body-copy">{mandate.body}</p>
-        </SectionOverline>
+        <CreditsSection />
 
-        <VisualBreak src="/media/night-still.jpg" alt="Cinematic still from recent work" />
-
-        <SectionOverline title={approach.overline}>
-          <p className="body-copy">{approach.body}</p>
-        </SectionOverline>
-
-        <Showreel />
-
-        <DualVisual
-          left={{ src: "/media/baat-baaki.png", alt: "Baat Baaki" }}
-          right={{ src: "/media/whiskey-sour.jpg", alt: "Whiskey Sour" }}
-        />
-
-        <Studio />
-        <Contact />
+        <NextProject />
       </main>
     </>
   );

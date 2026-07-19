@@ -3,50 +3,57 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { hero } from "@/lib/content";
+import { Reveal } from "./Reveal";
 
 export function Hero() {
-  const mediaRef = useRef<HTMLDivElement>(null);
+  const visualRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const node = mediaRef.current;
-    if (!node) return;
-    const id = window.setTimeout(() => node.classList.add("is-in"), 120);
+    const id = window.setTimeout(() => visualRef.current?.classList.add("is-in"), 80);
     return () => window.clearTimeout(id);
   }, []);
 
   return (
-    <section id="top" className="relative min-h-[100svh] pt-28 md:pt-32">
+    <section id="top" className="pt-24 md:pt-28">
       <div className="container">
-        <h1 className="hero-title display text-[clamp(3.6rem,12vw,9rem)]">
-          <span>{hero.title}</span>
-        </h1>
-        <p className="mt-5 max-w-xl font-[family-name:var(--font-body)] text-[clamp(1.35rem,2.4vw,1.85rem)] italic text-[var(--ink-soft)] md:mt-7">
-          {hero.caption}
-        </p>
-        <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between md:mt-10">
-          <p className="max-w-md body-copy">{hero.dek}</p>
-          <a
-            href="#work"
-            className="overline inline-flex w-fit items-center gap-2 border border-[var(--ink)] px-4 py-3 text-[0.7rem] transition hover:bg-[var(--ink)] hover:text-[var(--paper)]"
-          >
-            Recent projects
-          </a>
+        <div className="grid-4">
+          <p className="text-medium">{hero.eyebrow}</p>
+          <ul className="text-medium md:col-span-2">
+            {hero.categories.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-10 md:mt-16">
+          <h1 className="heading-huge">{hero.title}</h1>
+        </div>
+
+        <div className="grid-4 mt-6 md:mt-8">
+          <p className="text-medium">{hero.year}</p>
+          <p className="text-medium whitespace-pre-line md:col-span-2">{hero.meta}</p>
         </div>
       </div>
 
-      <div
-        ref={mediaRef}
-        className="hero-media media-frame mt-10 h-[42vh] min-h-[260px] w-full md:mt-12 md:h-[52vh]"
-      >
-        <Image
-          src="/media/hero-wide.jpg"
-          alt="Blank Verse Films on set"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+      <div className="container mt-8 md:mt-12">
+        <div ref={visualRef} className="hero-visual media aspect-[16/10] w-full">
+          <Image
+            src={hero.image}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <Reveal>
+          <p className="text-medium mt-4 max-w-xl italic">{hero.caption}</p>
+        </Reveal>
       </div>
+
+      <Reveal className="container mt-14 md:mt-24">
+        <p className="text-medium max-w-3xl md:max-w-4xl">{hero.pitch}</p>
+      </Reveal>
     </section>
   );
 }

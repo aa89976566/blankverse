@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Syne } from "next/font/google";
+import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 
-const display = Syne({
+const display = Instrument_Serif({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
-const body = Instrument_Serif({
-  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400"],
   style: ["normal", "italic"],
+});
+
+const sans = Manrope({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
+    <html lang="en" className={`${display.variable} ${sans.variable} h-full`}>
       <body className="min-h-full antialiased">{children}</body>
     </html>
   );
