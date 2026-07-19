@@ -7,6 +7,7 @@ import { Reveal } from "./Reveal";
 export function Showreel() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   const toggle = async () => {
     const video = videoRef.current;
@@ -42,10 +43,10 @@ export function Showreel() {
               className="h-full w-full object-cover"
               playsInline
               preload="metadata"
-              poster="/media/production-wide.jpg"
+              poster={`${base}/media/production-wide.jpg`}
               onEnded={() => setPlaying(false)}
             >
-              <source src="/video/showreel.mp4" type="video/mp4" />
+              <source src={`${base}/video/showreel.mp4`} type="video/mp4" />
             </video>
             {!playing ? (
               <button
