@@ -4,7 +4,6 @@ import {
   approach,
   credits,
   mandate,
-  nextProject,
   people,
   projects,
   site,
@@ -135,14 +134,21 @@ export function StudioSection() {
 
 export function WebsiteCta() {
   return (
-    <section id="contact" className="section-block container">
-      <Reveal>
-        <div className="section-rule py-8 md:py-14">
-          <p className="mb-4 text-sm uppercase tracking-[0.08em] text-[var(--color-muted)]">
-            Work with us
+    <section id="contact" className="section-block">
+      <Reveal className="container">
+        <div className="website-cta">
+          <span className="text-medium">{site.year}</span>
+          <p className="cta-visit mt-4 md:mt-6">
+            Visit{" "}
+            <a href={site.url} target="_blank" rel="noreferrer" className="nav-link">
+              blankversefilms.com
+            </a>
           </p>
-          <a href={`mailto:${site.email}`} className="cta-visit nav-link inline-block">
-            Write to {site.email.replace("@", " · ")}
+          <a
+            href={`mailto:${site.email}`}
+            className="mt-6 inline-block text-medium nav-link text-[var(--color-muted)]"
+          >
+            {site.email}
           </a>
         </div>
       </Reveal>
@@ -166,45 +172,6 @@ export function CreditsSection() {
           </div>
         </div>
       </Reveal>
-    </section>
-  );
-}
-
-export function NextProject() {
-  return (
-    <section className="mt-8 md:mt-16">
-      <Reveal className="container">
-        <div className="section-rule mb-8">
-          <h2 className="overline-title">{nextProject.eyebrow}</h2>
-        </div>
-        <a href={nextProject.href} className="block group">
-          <div className="grid-4 items-end">
-            <h3 className="heading-huge span-full">{nextProject.title}</h3>
-          </div>
-          <div className="grid-4 mt-6">
-            <p className="text-medium">{nextProject.year}</p>
-            <p className="text-medium whitespace-pre-line md:col-span-2">
-              {nextProject.meta}
-            </p>
-          </div>
-          <div className="media mt-8 aspect-[16/10]">
-            <Image
-              src={nextProject.image}
-              alt={nextProject.title}
-              fill
-              sizes="100vw"
-              className="object-cover transition duration-700 group-hover:scale-[1.02]"
-            />
-          </div>
-        </a>
-      </Reveal>
-
-      <footer className="container mt-16 flex flex-col gap-2 border-t border-[var(--color-line)] py-8 text-sm text-[var(--color-muted)] md:flex-row md:justify-between">
-        <p>
-          {site.year} {site.name}
-        </p>
-        <p>{site.tagline}</p>
-      </footer>
     </section>
   );
 }

@@ -1,12 +1,12 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Gallery } from "@/components/Gallery";
+import { NextProject } from "@/components/NextProject";
 import {
   AboutSection,
   ApproachSection,
   CreditsSection,
   MandateSection,
-  NextProject,
   ProjectsSection,
   StudioSection,
   WebsiteCta,
@@ -29,31 +29,40 @@ export default function HomePage() {
 
         <DualVisual left="/media/filmmaker-portrait.jpg" right="/media/set-alley.jpg" />
 
-        <VideoBlock
-          src="/video/clip-a.mp4"
-          poster="/media/production-wide.jpg"
-          autoPlay
+        <DualVideo
+          left={{ src: "/video/clip-a.mp4", poster: "/media/production-wide.jpg" }}
+          right={{ src: "/video/clip-b.mp4", poster: "/media/night-still.jpg" }}
         />
+
+        <FullVisual src="/media/hero-wide.jpg" />
 
         <MandateSection />
 
         <DualVisual left="/media/night-still.jpg" right="/media/still-a.jpg" rounded />
 
+        <VideoBlock src="/video/clip-b.mp4" poster="/media/set-alley.jpg" autoPlay />
+
         <FullVisual src="/media/baat-baaki.png" rounded />
 
-        <DualVideo
-          left={{ src: "/video/clip-b.mp4", poster: "/media/night-still.jpg" }}
-          right={{ src: "/video/clip-a.mp4", poster: "/media/hero-wide.jpg" }}
-        />
-
-        <FullVisual src="/media/whiskey-sour.jpg" />
+        <DualVisual left="/media/oh-good-grief.jpg" right="/media/whiskey-sour.jpg" />
 
         <ApproachSection />
 
-        <section id="showreel" className="bg-[var(--color-film)] py-4 text-white md:py-8">
-          <VideoBlock src="/video/showreel.mp4" poster="/media/production-wide.jpg" />
-          <div className="container pb-10">
+        <section id="showreel" className="showreel-band">
+          <div className="container mb-6">
             <p className="text-medium opacity-70">Showreel</p>
+          </div>
+          <VideoBlock src="/video/showreel.mp4" poster="/media/production-wide.jpg" bleed />
+          <div className="container mt-6 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <p className="text-sm opacity-60">Selected cuts from recent productions</p>
+            <a
+              href="https://www.youtube.com/watch?v=MDB41TwlpUg"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-link text-sm"
+            >
+              Watch on YouTube →
+            </a>
           </div>
         </section>
 
