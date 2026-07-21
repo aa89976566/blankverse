@@ -1,12 +1,11 @@
 # Blank Verse Films
 
-Editorial rebuild of [blankversefilms.com](https://www.blankversefilms.com), structured after the Locomotive case-study layout used on [The Drake Hotel](https://locomotive.ca/en/work/the-drake-hotel).
+Interactive studio site inspired by [justinesoulie.fr](https://justinesoulie.fr) — horizontal poster carousel, project case studies, and an archive of publicly available Blank Verse Films materials.
 
-## Stack
+## Preview
 
-- Next.js (App Router)
-- Tailwind CSS
-- TypeScript
+- Live: https://aa89976566.github.io/blankverse/
+- Repo: https://github.com/aa89976566/blankverse
 
 ## Develop
 
@@ -15,15 +14,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## Build
+## Deploy (GitHub Pages)
 
 ```bash
-npm run build
-npm start
+GITHUB_PAGES=1 npm run build
+# then publish `out/` to the `gh-pages` branch
 ```
-
-## Content
-
-Copy, projects, and credits live in `src/lib/content.ts`. Media is under `public/media` and `public/video`, sourced from the existing Blank Verse Films site.
