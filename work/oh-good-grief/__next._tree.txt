@@ -1,7 +1,7 @@
-:HL["/blankverse/_next/static/chunks/1z3w30a4ft5hy.css","style"]
+:HL["/blankverse/_next/static/chunks/29oy4x7bk4eno.css","style"]
 :HL["/blankverse/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/blankverse/_next/static/media/e24507cc2fd99222-s.p.3j_1nz5r9--0j.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/blankverse/media/oh-good-grief.jpg","image"]
 :HL["/blankverse/media/portrait-b.jpg","image"]
 :HL["/blankverse/media/still-a.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"work","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"oh-good-grief","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"wvum2nKAghoaJRL4B3BfQ"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"work","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"oh-good-grief","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"_GZzhdg_tCBAYBYgvsuRv"}
