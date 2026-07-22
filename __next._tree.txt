@@ -1,4 +1,4 @@
-:HL["/blankverse/_next/static/chunks/1g_iws_aqym6n.css","style"]
+:HL["/blankverse/_next/static/chunks/0jh9i7u9xbulq.css","style"]
 :HL["/blankverse/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/blankverse/_next/static/media/e24507cc2fd99222-s.p.3j_1nz5r9--0j.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"cOzaxVnoUzkbom7LjbBpA"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"X7tkxAmqp-hqpSo2vtba0"}
