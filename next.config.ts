@@ -4,6 +4,7 @@ const basePath = process.env.GITHUB_PAGES === "1" ? "/blankverse" : "";
 
 const nextConfig: NextConfig = {
   output: "export",
+  trailingSlash: true,
   basePath,
   assetPrefix: basePath || undefined,
   images: {
