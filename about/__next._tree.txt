@@ -1,6 +1,10 @@
-:HL["/blankverse/_next/static/chunks/417nqdu_2szjp.css","style"]
-:HL["/blankverse/_next/static/media/0c795a286deabae8-s.p.3vm0tq4e-zz_5.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/blankverse/_next/static/media/a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/blankverse/_next/static/chunks/3ys7x8hkk905_.css","style"]
+:HL["/blankverse/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/blankverse/_next/static/media/e24507cc2fd99222-s.p.3j_1nz5r9--0j.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/blankverse/media/filmmaker-portrait.jpg","image"]
+:HL["/blankverse/media/therapist-crew.jpg","image"]
+:HL["/blankverse/media/baat-baaki.png","image"]
+:HL["/blankverse/media/whiskey-sour.jpg","image"]
 :HL["/blankverse/media/set-alley.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"about","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"hzPMIDHdWtbooGc2jgr2L"}
+:HL["/blankverse/media/hero-wide.jpg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"about","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"xjGuWwwRlQXU3VikH_KJ_"}
