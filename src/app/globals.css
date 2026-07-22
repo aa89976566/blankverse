@@ -151,66 +151,7 @@ main {
   height: 100% !important;
 }
 
-/* ——— Loader veil (Justine): circle only, WebGL poster shows through ——— */
-.loader-veil {
-  position: fixed;
-  inset: 0;
-  z-index: 40;
-  pointer-events: all;
-  background: transparent;
-  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0.75s step-end;
-}
-
-.loader-veil.is-out {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.loader-veil__stage {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 47.25vh;
-  height: 63vh;
-  max-width: 86vw;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.loader-veil__circle {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 38%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #fff;
-  transform: translate(-50%, -50%) scale(0.12);
-  transform-origin: center center;
-  will-change: transform;
-  transition: transform 0.05s linear;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
-}
-
-.loader-veil.is-out .loader-veil__circle {
-  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@media screen and (max-width: 700px) {
-  .loader-veil__stage {
-    width: min(72vw, 47.25vh);
-    height: calc(min(72vw, 47.25vh) / 0.742);
-  }
-}
-
 .gl-carousel {
-  opacity: 0.92;
-  transition: opacity 0.5s ease;
-}
-
-.gl-carousel.is-ready {
   opacity: 1;
 }
 
