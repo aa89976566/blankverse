@@ -1,0 +1,8 @@
+:HL["/blankverse/_next/static/chunks/417nqdu_2szjp.css","style"]
+:HL["/blankverse/_next/static/media/0c795a286deabae8-s.p.3vm0tq4e-zz_5.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/blankverse/_next/static/media/a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/blankverse/media/poster-a.png","image"]
+:HL["/blankverse/media/still-c.png","image"]
+:HL["/blankverse/media/still-d.png","image"]
+:HL["/blankverse/media/hero-wide.jpg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"work","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"showreel","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"Ly7O1GeceLy7nn2RJChWJ"}
