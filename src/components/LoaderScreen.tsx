@@ -1,41 +1,53 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { asset } from "@/lib/content";
 
 type Props = {
-  poster: string;
-  progress: number; // 0..1
+  progress: number; // 0..1 target
   done: boolean;
 };
 
-export function LoaderScreen({ poster, progress, done }: Props) {
-  const [hide, setHide] = useState(false);
-  const [mounted, setMounted] = useState(true);
+/** Justine-style loader: only a white circle over the live WebGL poster — no second static card. */
+export function LoaderScreen({ progress, done }: Props) {
+  const [shown, setShown] = useState(0);
+  const [out, setOut] = useState(false);
+  const [gone, setGone] = useState(false);
+
+  useEffect(() => {
+    let raf = 0;
+    const tick = () => {
+      setShown((s) => s + (progress - s) * 0.12);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [progress]);
 
   useEffect(() => {
     if (!done) return;
-    const t = window.setTimeout(() => setHide(true), 120);
-    const t2 = window.setTimeout(() => setMounted(false), 900);
+    const t1 = window.setTimeout(() => setOut(true), 80);
+    const t2 = window.setTimeout(() => setGone(true), 850);
     return () => {
-      window.clearTimeout(t);
+      window.clearTimeout(t1);
       window.clearTimeout(t2);
     };
   }, [done]);
 
-  if (!mounted) return null;
+  if (gone) return null;
 
-  const p = Math.max(0, Math.min(1, progress));
-  // white circle grows from center — matches Justine's loading mask
-  const scale = 0.08 + p * 1.15;
+  const p = Math.max(0, Math.min(1, shown));
+  // Justine: solid white disc grows from center; on exit it expands and fades
+  const scale = out ? 2.4 : 0.12 + p * 0.88;
 
   return (
-    <div className={`loader-screen${hide || done ? " is-out" : ""}`} aria-busy={!done}>
-      <div className="loader-screen__poster">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={asset(poster)} alt="" draggable={false} />
+    <div
+      className={`loader-veil${out ? " is-out" : ""}`}
+      aria-busy={!done}
+      aria-label="Loading"
+    >
+      <div className="loader-veil__stage">
         <div
-          className="loader-screen__circle"
+          className="loader-veil__circle"
           style={{ transform: `translate(-50%, -50%) scale(${scale})` }}
         />
       </div>
