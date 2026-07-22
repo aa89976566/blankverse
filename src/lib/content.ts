@@ -7,13 +7,14 @@ export type Credit = { role: string; name: string };
 export type Project = {
   slug: string;
   title: string;
-  shortTitle?: string;
+  /** lowercase label under poster, Justine-style */
   label: string;
+  type: string;
   year: string;
   status: string;
-  format: string;
-  accent: string;
-  wash: string;
+  color: string;
+  transitionColor: string;
+  scrollbarColor: string;
   poster: string;
   cover: string;
   gallery: string[];
@@ -23,6 +24,10 @@ export type Project = {
   details: string[];
   credits: Credit[];
   links?: { label: string; href: string }[];
+  introBg?: string;
+  introText?: string;
+  typeBg?: string;
+  typeText?: string;
 };
 
 export const site = {
@@ -35,6 +40,7 @@ export const site = {
   instagram: "https://www.instagram.com/blank_verse_films/",
   udbhaviIg: "https://www.instagram.com/udbhavi_films/",
   bases: ["London", "Mumbai"],
+  intro: "Hello — we're Blank Verse Films",
 };
 
 export const studioCopy = [
@@ -47,12 +53,13 @@ export const projects: Project[] = [
   {
     slug: "therapist",
     title: "Therapist",
-    label: "Therapist",
+    label: "therapist",
+    type: "proof of concept · 12 min",
     year: "2023",
     status: "Festival circuit",
-    format: "Short · Proof of concept · 12 min",
-    accent: "#ff6b8a",
-    wash: "#ffe4ec",
+    color: "#ffe4ec",
+    transitionColor: "#ff6b8a",
+    scrollbarColor: "#ff6b8a",
     poster: "/media/therapist-crew.jpg",
     cover: "/media/therapist-crew.jpg",
     gallery: [
@@ -60,6 +67,7 @@ export const projects: Project[] = [
       "/media/still-a.jpg",
       "/media/portrait-a.jpg",
       "/media/still-b.jpg",
+      "/media/production-wide.jpg",
     ],
     video: "/video/clip-a.mp4",
     synopsis:
@@ -68,23 +76,26 @@ export const projects: Project[] = [
       "Proof of concept short film",
       "Runtime ≈ 12 minutes",
       "Submitted to national & international festivals",
-      "Produced under Blank Verse Films",
     ],
     credits: [
       { role: "Studio", name: "Blank Verse Films" },
       { role: "Producers", name: "Meghna Upadhyay · Udbhavi Upadhyay" },
     ],
+    introBg: "#f7f7f7",
+    introText: "#8c8080",
+    typeBg: "#ff6b8a",
+    typeText: "#ffffff",
   },
   {
     slug: "one-to-one",
     title: "1 – 1",
-    shortTitle: "1–1",
     label: "1 – 1",
+    type: "psychological crime short",
     year: "2024",
     status: "In post-production",
-    format: "Psychological crime short",
-    accent: "#5b8def",
-    wash: "#e4ecff",
+    color: "#e4ecff",
+    transitionColor: "#5b8def",
+    scrollbarColor: "#5b8def",
     poster: "/media/night-still.jpg",
     cover: "/media/night-still.jpg",
     gallery: [
@@ -96,25 +107,26 @@ export const projects: Project[] = [
     video: "/video/clip-b.mp4",
     synopsis:
       "A psychological crime short film currently in post-production — tense, intimate, and built around what people refuse to say out loud.",
-    details: [
-      "Psychological crime",
-      "Short film",
-      "Status: post-production",
-    ],
+    details: ["Psychological crime", "Short film", "Status: post-production"],
     credits: [
       { role: "Studio", name: "Blank Verse Films" },
       { role: "Bases", name: "UK · India" },
     ],
+    introBg: "#f4f0ed",
+    introText: "#8c8080",
+    typeBg: "#5b8def",
+    typeText: "#ffffff",
   },
   {
     slug: "athi-athikka",
     title: "Athi-Athikka",
-    label: "Athi-Athikka",
+    label: "athi-athikka",
+    type: "tamil feature · london & malaysia",
     year: "2025",
     status: "In post-production",
-    format: "Tamil feature · London & Malaysia",
-    accent: "#2db89a",
-    wash: "#dff7f0",
+    color: "#dff7f0",
+    transitionColor: "#2db89a",
+    scrollbarColor: "#2db89a",
     poster: "/media/hero-wide.jpg",
     cover: "/media/hero-wide.jpg",
     gallery: [
@@ -135,16 +147,21 @@ export const projects: Project[] = [
       { role: "Studio", name: "Blank Verse Films" },
       { role: "Producer", name: "Udbhavi Upadhyay" },
     ],
+    introBg: "#f4f0ed",
+    introText: "#8c8080",
+    typeBg: "#2db89a",
+    typeText: "#ffffff",
   },
   {
     slug: "whiskey-sour",
     title: "Whiskey Sour",
-    label: "Whiskey Sour",
+    label: "whiskey sour",
+    type: "lgbtq drama · hindi · 17′33″",
     year: "2024",
     status: "Official Selection · Mumbai Shorts",
-    format: "LGBTQ drama · Hindi · 17′33″",
-    accent: "#f5c518",
-    wash: "#fff6d6",
+    color: "#fff6d6",
+    transitionColor: "#f5c518",
+    scrollbarColor: "#f5c518",
     poster: "/media/whiskey-sour.jpg",
     cover: "/media/external/whiskey-sour-yt.jpg",
     gallery: [
@@ -161,7 +178,6 @@ export const projects: Project[] = [
       "Language: Hindi · Subtitles: English",
       "Genre: LGBTQ · Drama · Romance",
       "Completion: 30 June 2024",
-      "Country: India",
       "IMDb: tt32392458",
       "13th Mumbai Shorts Int. Film Festival — Official Selection",
     ],
@@ -183,22 +199,23 @@ export const projects: Project[] = [
         label: "Watch on YouTube",
         href: "https://www.youtube.com/watch?v=MDB41TwlpUg",
       },
-      {
-        label: "IMDb",
-        href: "https://www.imdb.com/title/tt32392458/",
-      },
+      { label: "IMDb", href: "https://www.imdb.com/title/tt32392458/" },
     ],
+    introBg: "#fafaf7",
+    introText: "#8c8080",
+    typeBg: "#f5c518",
+    typeText: "#252422",
   },
   {
     slug: "baat-baaki",
     title: "Baat Baaki",
-    shortTitle: "बात बाकी",
-    label: "Baat Baaki",
+    label: "baat baaki",
+    type: "vertical series",
     year: "2025",
-    status: "Vertical series · Live on Instagram",
-    format: "Micro / vertical series",
-    accent: "#e8a14a",
-    wash: "#ffe8cc",
+    status: "Live on Instagram",
+    color: "#ffe8cc",
+    transitionColor: "#e8a14a",
+    scrollbarColor: "#e8a14a",
     poster: "/media/baat-baaki.png",
     cover: "/media/baat-baaki.png",
     gallery: [
@@ -213,7 +230,6 @@ export const projects: Project[] = [
       "Vertical / micro series",
       "Themes: loneliness · AI · intimacy",
       "Shot in Mumbai",
-      "Available via Blank Verse Films Instagram",
     ],
     credits: [
       { role: "Director", name: "Udbhavi Upadhyay" },
@@ -233,16 +249,21 @@ export const projects: Project[] = [
         href: "https://www.instagram.com/blank_verse_films/",
       },
     ],
+    introBg: "#fff8ef",
+    introText: "#8c8080",
+    typeBg: "#e8a14a",
+    typeText: "#ffffff",
   },
   {
     slug: "waiting-room",
     title: "Waiting Room",
-    label: "Waiting Room",
+    label: "waiting room",
+    type: "short · presented by bvf",
     year: "2025",
     status: "In post-production",
-    format: "Short · Blank Verse Films presents",
-    accent: "#9b7bff",
-    wash: "#ece4ff",
+    color: "#ece4ff",
+    transitionColor: "#9b7bff",
+    scrollbarColor: "#9b7bff",
     poster: "/media/set-alley.jpg",
     cover: "/media/set-alley.jpg",
     gallery: [
@@ -252,28 +273,32 @@ export const projects: Project[] = [
       "/media/still-b.jpg",
     ],
     synopsis:
-      "Blank Verse Films presents Waiting Room — a short produced by Udbhavi Upadhyay with support from the London Film Academy ecosystem. Cast includes Paula Lindblom.",
+      "Blank Verse Films presents Waiting Room — a short produced by Udbhavi Upadhyay. Cast includes Paula Lindblom.",
     details: [
       "Short film",
       "Presented by Blank Verse Films",
       "Producer: Udbhavi Upadhyay",
-      "Status: post-production",
     ],
     credits: [
       { role: "Presented by", name: "Blank Verse Films" },
       { role: "Producer", name: "Udbhavi Upadhyay" },
       { role: "Cast", name: "Paula Lindblom" },
     ],
+    introBg: "#f4f0ed",
+    introText: "#8c8080",
+    typeBg: "#9b7bff",
+    typeText: "#ffffff",
   },
   {
     slug: "oh-good-grief",
     title: "Oh Good Grief",
-    label: "Oh Good Grief",
+    label: "oh good grief",
+    type: "short · produced by udbhavi",
     year: "2024",
     status: "Completed",
-    format: "Short · Produced by Udbhavi",
-    accent: "#4ecdc4",
-    wash: "#d9f7f4",
+    color: "#d9f7f4",
+    transitionColor: "#4ecdc4",
+    scrollbarColor: "#4ecdc4",
     poster: "/media/oh-good-grief.jpg",
     cover: "/media/oh-good-grief.jpg",
     gallery: [
@@ -288,16 +313,21 @@ export const projects: Project[] = [
       { role: "Producer", name: "Udbhavi Upadhyay" },
       { role: "Studio", name: "Blank Verse Films" },
     ],
+    introBg: "#f4f0ed",
+    introText: "#8c8080",
+    typeBg: "#4ecdc4",
+    typeText: "#ffffff",
   },
   {
     slug: "showreel",
     title: "Showreel",
-    label: "Showreel",
+    label: "showreel",
+    type: "studio cut · uk & india",
     year: "2026",
     status: "Studio cut",
-    format: "Selected clips · UK & India",
-    accent: "#ff8a5c",
-    wash: "#ffe5d9",
+    color: "#ffe5d9",
+    transitionColor: "#ff8a5c",
+    scrollbarColor: "#ff8a5c",
     poster: "/media/poster-a.png",
     cover: "/media/still-c.png",
     gallery: [
@@ -305,14 +335,12 @@ export const projects: Project[] = [
       "/media/still-c.png",
       "/media/still-d.png",
       "/media/hero-wide.jpg",
+      "/media/filmmaker-portrait.jpg",
     ],
     video: "/video/showreel.mp4",
     synopsis:
       "A living collage of Blank Verse Films work — festival shorts, features in post, vertical experiments, and the people who make them.",
-    details: [
-      "Compiled from studio productions",
-      "Includes on-set and finished work",
-    ],
+    details: ["Compiled from studio productions"],
     credits: [
       { role: "Studio", name: "Blank Verse Films" },
       { role: "Founders", name: "Meghna Upadhyay · Udbhavi Upadhyay" },
@@ -323,6 +351,10 @@ export const projects: Project[] = [
         href: "https://www.youtube.com/watch?v=MDB41TwlpUg",
       },
     ],
+    introBg: "#f4f0ed",
+    introText: "#8c8080",
+    typeBg: "#ff8a5c",
+    typeText: "#ffffff",
   },
 ];
 
@@ -333,7 +365,7 @@ export const people = [
     role: "Filmmaker · Writer · Producer",
     place: "London",
     image: "/media/filmmaker-portrait.jpg",
-    accent: "#ff6b8a",
+    color: "#ffe4ec",
     socials: [
       { label: "Instagram", href: "https://www.instagram.com/udbhavi_films/" },
       { label: "Email", href: "mailto:udbhavi.films@gmail.com" },
@@ -351,9 +383,12 @@ export const people = [
     role: "Writer · Producer · Poet",
     place: "Mumbai",
     image: "/media/set-alley.jpg",
-    accent: "#5b8def",
+    color: "#e4ecff",
     socials: [
-      { label: "Studio IG", href: "https://www.instagram.com/blank_verse_films/" },
+      {
+        label: "Studio IG",
+        href: "https://www.instagram.com/blank_verse_films/",
+      },
     ],
     bio: [
       "Meghna is a Mumbai-based spoken word poet, storyteller and writer with four years of stage experience across curated events, theatre shows and literature festivals. Venues include Kommune, Habitat, Rasa–the stage, Balgandharv Mandir, Mukti Manch and Cat Cafe Studio.",

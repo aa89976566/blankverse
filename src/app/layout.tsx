@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Syne, Manrope } from "next/font/google";
+import { Inter, Modak } from "next/font/google";
 import "./globals.css";
 
-const display = Syne({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["600", "700", "800"],
+  variable: "--font-inter",
+  weight: ["400", "500", "700"],
 });
 
-const body = Manrope({
+const modak = Modak({
   subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-modak",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +25,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${inter.variable} ${modak.variable}`}>
       <body>
-        <div className="site-shell">{children}</div>
+        <div className="noise" aria-hidden />
+        <div className="app-root">{children}</div>
       </body>
     </html>
   );

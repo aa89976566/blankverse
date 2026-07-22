@@ -1,16 +1,20 @@
+"use client";
+
+import { useCallback, useState } from "react";
 import { Header } from "@/components/Header";
-import { PosterCarousel } from "@/components/PosterCarousel";
-import { projects, site } from "@/lib/content";
+import { WebGLCarousel } from "@/components/WebGLCarousel";
+import { WorkNames } from "@/components/WorkNames";
+import { projects } from "@/lib/content";
 
 export default function HomePage() {
+  const [active, setActive] = useState(0);
+  const onActiveChange = useCallback((i: number) => setActive(i), []);
+
   return (
-    <main className="home">
+    <main className="home-stage">
       <Header />
-      <PosterCarousel projects={projects} />
-      <div className="home__hint">
-        <span>Drag · Scroll · Click a poster</span>
-        <span>{site.tagline}</span>
-      </div>
+      <WebGLCarousel projects={projects} onActiveChange={onActiveChange} />
+      <WorkNames project={projects[active] ?? null} visible />
     </main>
   );
 }
