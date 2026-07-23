@@ -24,3 +24,11 @@ export function WorkBodyClass({
   }, [className, style]);
   return null;
 }
+
+export function ScrollBody() {
+  useEffect(() => {
+    document.body.classList.add("is-scroll");
+    return () => document.body.classList.remove("is-scroll");
+  }, []);
+  return null;
+}

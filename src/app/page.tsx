@@ -1,8 +1,7 @@
 "use client";
 
-import { HomeExperience } from "@/components/HomeExperience";
-import { projects } from "@/lib/content";
+import { Desktop } from "@/components/desktop/Desktop";
 
 export default function HomePage() {
-  return <HomeExperience projects={projects} />;
+  return <Desktop />;
 }

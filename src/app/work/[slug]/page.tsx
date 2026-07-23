@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { CSSProperties } from "react";
-import { Header } from "@/components/Header";
+import { ScrollBody } from "@/components/BodyClass";
 import { asset, getProject, projects } from "@/lib/content";
-import { WorkBodyClass } from "@/components/BodyClass";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -24,123 +22,50 @@ export default async function WorkPage({
 
   return (
     <>
-      <WorkBodyClass
-        className="is-work"
-        style={
-          {
-            ["--scroll"]: project.scrollbarColor,
-          } as CSSProperties
-        }
-      />
-      <Header />
-      <main
-        className="work-page"
-        style={{ ["--scroll" as string]: project.scrollbarColor }}
-      >
-        <section
-          className="work-panel work-panel--intro"
-          style={{
-            background: project.introBg || project.color,
-            color: project.introText || "#8c8080",
-          }}
-        >
-          <span
-            className="eyebrow"
-            style={{
-              background: project.typeBg || project.transitionColor,
-              color: project.typeText || "#fff",
-            }}
-          >
-            {project.type}
-          </span>
-          <h1 style={{ color: "#252422" }}>{project.title}</h1>
-          <p>{project.synopsis}</p>
-        </section>
-
+      <ScrollBody />
+      <main className="simple-page">
+        <Link className="back" href="/">
+          ← Desktop
+        </Link>
+        <p className="lede" style={{ marginTop: "1.5rem" }}>
+          {project.type} · {project.year}
+        </p>
+        <h1>{project.title}</h1>
+        <p className="lede">{project.status}</p>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="cover" src={asset(project.cover)} alt="" />
+        <p>{project.synopsis}</p>
         {project.video ? (
-          <section className="work-panel work-panel--media">
-            <div className="frame">
-              <video
-                src={asset(project.video)}
-                controls
-                playsInline
-                preload="metadata"
-                poster={asset(project.cover)}
-              />
-            </div>
-          </section>
+          <video
+            src={asset(project.video)}
+            controls
+            playsInline
+            preload="metadata"
+            poster={asset(project.cover)}
+            style={{ width: "100%", margin: "1rem 0", borderRadius: 8 }}
+          />
         ) : null}
-
         {project.gallery.map((src) => (
-          <section className="work-panel work-panel--media" key={src}>
-            <div className="frame">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset(src)} alt="" />
-            </div>
-          </section>
+          // eslint-disable-next-line @next/next/no-img-element
+          <img key={src} className="cover" src={asset(src)} alt="" />
         ))}
-
-        <section
-          className="work-panel work-panel--text"
-          style={{ background: project.transitionColor, color: "#fff" }}
-        >
-          <h2 style={{ color: "#fff" }}>Details</h2>
-          {project.details.map((d) => (
-            <p key={d} style={{ color: "rgba(255,255,255,0.9)" }}>
-              {d}
-            </p>
-          ))}
-          <p style={{ color: "rgba(255,255,255,0.9)" }}>
-            {project.year} · {project.status}
+        <h2 style={{ fontSize: "1.2rem", marginTop: "2rem" }}>Credits</h2>
+        {project.credits.map((c) => (
+          <p key={`${c.role}-${c.name}`}>
+            <strong>{c.role}</strong> — {c.name}
           </p>
-        </section>
-
-        <section className="work-panel work-panel--credits">
-          <h2
-            style={{
-              margin: "0 0 1.4rem",
-              fontSize: "2.4rem",
-              letterSpacing: "-0.04rem",
-            }}
-          >
-            Credits
-          </h2>
-          <dl>
-            {project.credits.map((c) => (
-              <div className="credit-row" key={`${c.role}-${c.name}`}>
-                <dt>{c.role}</dt>
-                <dd>{c.name}</dd>
-              </div>
-            ))}
-          </dl>
-          {project.links?.length ? (
-            <div className="work-links">
-              {project.links.map((l) => (
-                <a
-                  key={l.href}
-                  className="pill pill--fill"
-                  href={l.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          ) : null}
-        </section>
-
-        <section className="work-panel work-panel--nav">
-          <Link className="pill" href={`/work/${prev.slug}/`}>
-            ← {prev.label}
-          </Link>
-          <Link className="pill pill--fill" href={`/work/${next.slug}/`}>
-            {next.label} →
-          </Link>
-          <Link className="pill" href="/">
-            Back home
-          </Link>
-        </section>
+        ))}
+        {project.links?.map((l) => (
+          <p key={l.href}>
+            <a href={l.href} target="_blank" rel="noreferrer">
+              {l.label}
+            </a>
+          </p>
+        ))}
+        <p style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+          <Link href={`/work/${prev.slug}/`}>← {prev.title}</Link>
+          <Link href={`/work/${next.slug}/`}>{next.title} →</Link>
+        </p>
       </main>
     </>
   );
